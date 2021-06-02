@@ -10,7 +10,7 @@ export class KanbanBoard implements OnInit {
   tasks: Task[];
   stagesNames: string[];
   stagesTasks: any[]; //Only used for rendering purpose
-  inputValue;
+  inputValue = "";
 
   ngOnInit() {
     // Each task is uniquely identified by its name.
@@ -44,62 +44,63 @@ export class KanbanBoard implements OnInit {
   }
 
   createTask(): void {
-    if (this.inputValue) {
+    if (this.inputValue && this.inputValue !== "") {
       const task = { name: this.inputValue, stage: 0 };
       this.stagesTasks[task.stage].push(task);
+      this.inputValue = "";
     }
   }
 
   demoteTask(i, name): void {
     let task;
-    let index;
+    let indexValue;
     this.stagesTasks[i].forEach((element, index) => {
       if (name === element.name) {
         task = { ...element };
-        index;
+        indexValue = index;
       }
     });
 
     if (task.stage > 0) {
       task.stage -= 1;
-      this.stagesTasks[i].splice(index, 1);
+      this.stagesTasks[i].splice(indexValue, 1);
       this.stagesTasks[task.stage].push(task);
     }
 
-    console.log(this.stagesTasks);
+    // console.log(this.stagesTasks);
   }
 
   promoteTask(i, name): void {
     let task;
-    let index;
+    let indexValue;
     this.stagesTasks[i].forEach((element, index) => {
       if (name === element.name) {
         task = { ...element };
-        index;
+        indexValue = index;
       }
     });
 
     if (task.stage < 3) {
       task.stage += 1;
-      this.stagesTasks[i].splice(index, 1);
+      this.stagesTasks[i].splice(indexValue, 1);
       this.stagesTasks[task.stage].push(task);
     }
 
-    console.log(this.stagesTasks);
+    // console.log(this.stagesTasks);
   }
 
   deleteTask(i, name): void {
     let task;
-    let index;
+    let indexValue;
     this.stagesTasks[i].forEach((element, index) => {
       if (name === element.name) {
         task = { ...element };
-        index;
+        indexValue = index;
       }
     });
-    this.stagesTasks[i].splice(index, 1);
+    this.stagesTasks[i].splice(indexValue, 1);
 
-    console.log(this.stagesTasks);
+    // console.log(this.stagesTasks);
   }
 }
 
