@@ -7,10 +7,6 @@
 - Node Version: 12.18.3
 - Default Port: 8000
 
-## Application Demo:
-
-![](https://hrcdn.net/s3_pub/istreet-assets/rx0RgepDUoT2c6fibnvi5A/angular-kanban-medium.gif)
-
 ## Functionality Requirements
 
 - The board contains 4 stages of tasks in sequence - 'Backlog', 'To Do', 'Ongoing' and 'Done'.
@@ -53,17 +49,3 @@
 - src/app/app.component.spec.ts
 - src/app/app.component.ts
 - src/app/app.module.ts
-
-**Commands**
-- run: 
-```bash
-bash bin/env_setup && . $HOME/.nvm/nvm.sh && npm start
-```
-- install: 
-```bash
-bash bin/env_setup && . $HOME/.nvm/nvm.sh && npm install
-```
-- test: 
-```bash
-bash bin/env_setup && . $HOME/.nvm/nvm.sh && npm test
-```
